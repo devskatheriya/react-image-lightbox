@@ -829,16 +829,16 @@ class ReactImageLightbox extends Component {
     }
   }
 
-  multiPointerStart(event) {
+  multiPointerStart() {
     this.handleEnd(null);
     switch (this.pointerList.length) {
       case 1: {
-        event.preventDefault();
+        // event.preventDefault();
         this.decideMoveOrSwipe(this.pointerList[0]);
         break;
       }
       case 2: {
-        event.preventDefault();
+        // event.preventDefault();
         this.handlePinchStart(this.pointerList);
         break;
       }
@@ -850,17 +850,17 @@ class ReactImageLightbox extends Component {
   multiPointerMove(event, pointerList) {
     switch (this.currentAction) {
       case ACTION_MOVE: {
-        event.preventDefault();
+        // event.preventDefault();
         this.handleMove(pointerList[0]);
         break;
       }
       case ACTION_SWIPE: {
-        event.preventDefault();
+        // event.preventDefault();
         this.handleSwipe(pointerList[0]);
         break;
       }
       case ACTION_PINCH: {
-        event.preventDefault();
+        // event.preventDefault();
         this.handlePinch(pointerList);
         break;
       }
@@ -880,12 +880,12 @@ class ReactImageLightbox extends Component {
         break;
       }
       case 1: {
-        event.preventDefault();
+        // event.preventDefault();
         this.decideMoveOrSwipe(this.pointerList[0]);
         break;
       }
       case 2: {
-        event.preventDefault();
+        // event.preventDefault();
         this.handlePinchStart(this.pointerList);
         break;
       }
@@ -1010,10 +1010,10 @@ class ReactImageLightbox extends Component {
     }
 
     if (xDiff > 0 && this.props.prevSrc) {
-      event.preventDefault();
+      // event.preventDefault();
       this.requestMovePrev();
     } else if (xDiff < 0 && this.props.nextSrc) {
-      event.preventDefault();
+      // event.preventDefault();
       this.requestMoveNext();
     }
   }
@@ -1101,7 +1101,7 @@ class ReactImageLightbox extends Component {
       (event.deltaY > 0 && height + scrollTop >= scrollHeight) ||
       (event.deltaY < 0 && scrollTop <= 0)
     ) {
-      event.preventDefault();
+      // event.preventDefault();
     }
   }
 
