@@ -210,7 +210,9 @@ class ReactImageLightbox extends Component {
       pointercancel: this.handlePointerEvent,
     };
     Object.keys(this.listeners).forEach(type => {
-      this.windowContext.addEventListener(type, this.listeners[type]);
+      this.windowContext.addEventListener(type, this.listeners[type], {
+        passive: true,
+      });
     });
 
     this.loadAllImages();
@@ -258,7 +260,9 @@ class ReactImageLightbox extends Component {
   componentWillUnmount() {
     this.didUnmount = true;
     Object.keys(this.listeners).forEach(type => {
-      this.windowContext.removeEventListener(type, this.listeners[type]);
+      this.windowContext.removeEventListener(type, this.listeners[type], {
+        passive: true,
+      });
     });
     this.timeouts.forEach(tid => clearTimeout(tid));
   }
